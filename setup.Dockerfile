@@ -9,6 +9,8 @@ RUN apt-get install -y curl
 COPY ./*.sh .
 COPY ./*.dump .
 
+RUN sed -i 's/\r$//' ./setup.sh
+
 RUN chmod +x ./setup.sh
 
 ENTRYPOINT sh -c ./setup.sh
